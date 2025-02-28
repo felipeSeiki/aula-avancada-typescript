@@ -1,28 +1,14 @@
-import { Carro } from "./interface/Carro";
-import { Moto } from "./interface/Moto";
+import { EstoqueVeiculos } from "./classes/EstoqueVeiculos";
 
-import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos";
+const estoque = new EstoqueVeiculos();
 
-const gerenciadorCarros = new GerenciadorVeiculos<Carro>();
-const gerenciadorMoto = new GerenciadorVeiculos<Moto>();
+estoque.adicionarEstoque("Civic", 5);
+estoque.adicionarEstoque("CB 500", 2);
 
-gerenciadorCarros.adicionar({
-    modelo: "Civic",
-    ano: 2020, 
-    marca: "Honda",
-    portas: 4,
-})
+console.log("Estoque após adição: ", estoque.consultaEstoque("Civic"));
 
-gerenciadorMoto.adicionar({
-    modelo: "CB 500",
-    ano: 2021,
-    marca: "Honda",
-    cilindradas: 500,
-})
+estoque.removeEstoque("Civic", 3);
 
-console.log("Lista de Carros: ", gerenciadorCarros.listarVeiculos());
-console.log("Lista de Motos: ", gerenciadorMoto.listarVeiculos());
+console.log("Estoque após remoção: ", estoque.consultaEstoque("Civic"));
 
-gerenciadorCarros.remover("Civic");
 
-console.log("Após remoção: ", gerenciadorCarros.listarVeiculos());
