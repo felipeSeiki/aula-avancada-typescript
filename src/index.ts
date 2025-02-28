@@ -1,21 +1,28 @@
 import { Carro } from "./interface/Carro";
 import { Moto } from "./interface/Moto";
-const meuCarro: Carro = {
-    marca: "Toyota",
-    modelo: "Corolla",
-    ano: 2022,
-    portas: 4,
-    acelerar: () => "O carro está acelerando!"
-};
-const minhaMoto: Moto = {
+
+import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos";
+
+const gerenciadorCarros = new GerenciadorVeiculos<Carro>();
+const gerenciadorMoto = new GerenciadorVeiculos<Moto>();
+
+gerenciadorCarros.adicionar({
+    modelo: "Civic",
+    ano: 2020, 
     marca: "Honda",
+    portas: 4,
+})
+
+gerenciadorMoto.adicionar({
     modelo: "CB 500",
     ano: 2021,
+    marca: "Honda",
     cilindradas: 500,
-    acelerar: () => "A moto está acelerando!"
-};
+})
 
-console.log("Carro:", meuCarro);
-console.log(meuCarro.acelerar());
-console.log("Moto:", minhaMoto);
-console.log(minhaMoto.acelerar());
+console.log("Lista de Carros: ", gerenciadorCarros.listarVeiculos());
+console.log("Lista de Motos: ", gerenciadorMoto.listarVeiculos());
+
+gerenciadorCarros.remover("Civic");
+
+console.log("Após remoção: ", gerenciadorCarros.listarVeiculos());
