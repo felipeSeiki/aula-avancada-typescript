@@ -1,14 +1,22 @@
+import { Carro } from "./interface/Carro";
+import { Moto } from "./interface/Moto";
+
+import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos";
 import { EstoqueVeiculos } from "./classes/EstoqueVeiculos";
 
-const estoque = new EstoqueVeiculos();
+import { filtrarPorAno, filtrarPorMarca, filtrarPorModelo } from "./utils/FiltroVeiculos";
+import { Veiculo } from "./interface/Veiculo";
 
-estoque.adicionarEstoque("Civic", 5);
-estoque.adicionarEstoque("CB 500", 2);
 
-console.log("Estoque após adição: ", estoque.consultaEstoque("Civic"));
+const veiculos: Veiculo[] =[
+    {modelo: "Civic", ano: 2020, marca: "Honda"},
+    {modelo: "Corolla", ano: 2021, marca: "Toyota"},
+    {modelo: "CB 500", ano: 2022, marca: "Honda"},
+];
 
-estoque.removeEstoque("Civic", 3);
+console.log("Veículos de 2021: ", filtrarPorAno(veiculos, 2021));
+console.log("Veículos da marca Honda: ", filtrarPorMarca(veiculos, "Honda"));
+console.log("Veículos modelo Civic: ", filtrarPorModelo(veiculos, "Civic"));
 
-console.log("Estoque após remoção: ", estoque.consultaEstoque("Civic"));
 
 
