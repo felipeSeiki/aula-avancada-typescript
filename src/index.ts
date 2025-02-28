@@ -1,5 +1,5 @@
-import { filtrarPorAno, filtrarPorMarca, filtrarPorModelo } from "./classes/FiltroVeiculo";
 import { Veiculo } from "./interface/Veiculo";
+import { gerarRelatorio } from "./utils/RelatorioVeiculos";
 
 const veiculos: Veiculo[] =[
     {modelo: "Civic", ano: 2020, marca: "Honda"},
@@ -7,9 +7,4 @@ const veiculos: Veiculo[] =[
     {modelo: "CB 500", ano: 2022, marca: "Honda"},
 ];
 
-console.log("Veículos de 2021: ", filtrarPorAno(veiculos, 2021));
-console.log("Veículos da marca Honda: ", filtrarPorMarca(veiculos, "Honda"));
-console.log("Veículos modelo Civic: ", filtrarPorModelo(veiculos, "Civic"));
-
-
-
+console.log("Relátprop de Veículos: \n", gerarRelatorio(veiculos));
