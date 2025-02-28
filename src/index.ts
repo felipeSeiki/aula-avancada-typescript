@@ -1,12 +1,5 @@
-import { Carro } from "./interface/Carro";
-import { Moto } from "./interface/Moto";
-
-import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos";
-import { EstoqueVeiculos } from "./classes/EstoqueVeiculos";
-
-import { filtrarPorAno, filtrarPorMarca, filtrarPorModelo } from "./utils/FiltroVeiculos";
+import { filtrarPorAno, filtrarPorMarca, filtrarPorModelo } from "./classes/FiltroVeiculo";
 import { Veiculo } from "./interface/Veiculo";
-
 
 const veiculos: Veiculo[] =[
     {modelo: "Civic", ano: 2020, marca: "Honda"},
